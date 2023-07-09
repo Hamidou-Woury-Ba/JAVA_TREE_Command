@@ -21,17 +21,17 @@ public class Repertoire {
     }
 
     private void afficherElementRecursive(Repertoire repertoire, int profondeur) {
-        String indent = "│   ".repeat(profondeur);
-        String pre = indent + "├───";
-
+        String indent = "\u2502   ".repeat(profondeur);
+        String pre = indent + "\u251C\u2500\u2500\u2500";
+    
         System.out.println(pre + repertoire.nom);
-
+    
         for (int i = 0; i < repertoire.nbElements; i++) {
             Object element = repertoire.elements[i];
             if (element instanceof Repertoire) {
                 afficherElementRecursive((Repertoire) element, profondeur + 1);
             } else if (element instanceof Fichier) {
-                System.out.println(indent + "│   ├───" + ((Fichier) element).getNom());
+                System.out.println(indent + "\u2502   \u2514\u2500\u2500\u2500" + ((Fichier) element).getNom());
             }
         }
     }
